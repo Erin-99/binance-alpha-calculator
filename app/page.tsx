@@ -77,7 +77,7 @@ class AlphaCalculator {
     const neededTradingPoints = Math.max(0, targetTotalPoints - balancePoints);
     const requiredTradingAmount = this.calculateRequiredTradingAmount(neededTradingPoints);
     const remainingTradingAmount = Math.max(0, requiredTradingAmount - currentTradingVolume);
-    const singleTradeAmount = userBalance * 2;
+    const singleTradeAmount = userBalance;
     const requiredTrades = singleTradeAmount > 0 ? 
       Math.ceil(remainingTradingAmount / singleTradeAmount) : 0;
     const recommendedTrades = requiredTrades > 0 ? requiredTrades + 1 : 0;
