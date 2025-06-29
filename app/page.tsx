@@ -585,58 +585,56 @@ export default function HomePage() {
                     <span style={{color: '#1e3a8a'}}>$2 → 1{t.point}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1d4ed8'}}>$4 → 2{t.points}</span>
-                  </div>
-                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1e3a8a'}}>$8 → 3{t.points}</span>
-                  </div>
-                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1d4ed8'}}>$16 → 4{t.points}</span>
-                  </div>
-                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1e3a8a'}}>$32 → 5{t.points}</span>
-                  </div>
-                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1d4ed8'}}>$64 → 6{t.points}</span>
-                  </div>
-                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
                     <span style={{color: '#1e3a8a'}}>$128 → 7{t.points}</span>
+                  </div>
+                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
+                    <span style={{color: '#1e3a8a'}}>$8192 → 13{t.points}</span>
+                  </div>
+                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
+                    <span style={{color: '#1d4ed8'}}>$4 → 2{t.points}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
                     <span style={{color: '#1d4ed8'}}>$256 → 8{t.points}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
+                    <span style={{color: '#1d4ed8'}}>$16384 → 14{t.points}</span>
+                  </div>
+                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
+                    <span style={{color: '#1e3a8a'}}>$8 → 3{t.points}</span>
+                  </div>
+                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
                     <span style={{color: '#1e3a8a'}}>$512 → 9{t.points}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1d4ed8'}}>$1K → 10{t.points}</span>
+                    <span style={{color: '#1e3a8a'}}>$32768 → 15{t.points}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1e3a8a'}}>$2K → 11{t.points}</span>
+                    <span style={{color: '#1d4ed8'}}>$16 → 4{t.points}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1d4ed8'}}>$4K → 12{t.points}</span>
+                    <span style={{color: '#1d4ed8'}}>$1024 → 10{t.points}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1e3a8a'}}>$8K → 13{t.points}</span>
+                    <span style={{color: '#1d4ed8'}}>$65536 → 16{t.points}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1d4ed8'}}>$16K → 14{t.points}</span>
+                    <span style={{color: '#1e3a8a'}}>$32 → 5{t.points}</span>
                   </div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1e3a8a'}}>$32K → 15{t.points}</span>
+                    <span style={{color: '#1e3a8a'}}>$2048 → 11{t.points}</span>
                   </div>
-                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
-                    <span style={{color: '#1d4ed8'}}>$65K → 16{t.points}</span>
-                  </div>
-                  <div></div>
                   <div style={{textAlign: 'center', padding: '4px 2px'}}>
                     <span style={{color: '#64748b', fontSize: '11px'}}>...</span>
                   </div>
-                </div>
-                
-                <div style={{marginTop: '12px', padding: '8px', background: '#f8fafc', borderRadius: '6px', textAlign: 'center'}}>
-                  <span style={{color: '#1e3a8a', fontSize: '11px', fontWeight: '500'}}>{t.noMaxLimit} - {t.unlimitedPoints}</span>
+                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
+                    <span style={{color: '#1d4ed8'}}>$64 → 6{t.points}</span>
+                  </div>
+                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
+                    <span style={{color: '#1d4ed8'}}>$4096 → 12{t.points}</span>
+                  </div>
+                  <div style={{textAlign: 'center', padding: '4px 2px'}}>
+                    <span style={{color: '#1e3a8a', fontSize: '11px', fontWeight: '500'}}>{t.noMaxLimit} - {t.unlimitedPoints}</span>
+                  </div>
                 </div>
               </div>
             </div>
