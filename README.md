@@ -1,17 +1,22 @@
-# 币安Alpha积分跟踪系统
+# 币安Alpha积分计算器
 
-这是一个自动抓取币安交易数据并计算Alpha积分的系统。专门针对Alpha交易计划设计，只统计买入交易量的两倍作为积分。
+一个功能完整的币安Alpha积分计算器，帮助用户快速计算达到目标积分等级所需的交易次数。
 
-## 功能特点
+## 当前功能 ✅
 
-- ✅ 自动同步币安交易数据
-- ✅ 计算Alpha积分（买入量 × 2）
-- ✅ Alpha积分等级系统（1-20级）
-- ✅ 本金交易次数计算器
-- ✅ 每日数据统计和汇总
-- ✅ 定时任务自动执行（每天2次）
-- ✅ 简洁的数据展示界面
-- ✅ 安全的API密钥管理
+- ✅ **双语界面**: 中英文一键切换
+- ✅ **实时计算**: 输入即时显示结果，无需点击按钮  
+- ✅ **智能建议**: 自动计算所需交易次数和建议次数
+- ✅ **积分规则**: 完整的余额积分和交易积分规则展示
+- ✅ **响应式设计**: 适配各种屏幕尺寸
+- ✅ **现代化UI**: 渐变背景 + 卡片设计
+
+## 高级功能 (已开发待集成) 🔧
+
+- 🔧 币安API集成和历史数据同步
+- 🔧 个人积分统计和趋势分析  
+- 🔧 定时任务自动数据更新
+- 🔧 交易记录详情和历史查询
 
 ## 技术栈
 
@@ -22,12 +27,12 @@
 - **定时任务**: node-cron
 - **API**: 币安官方API
 
-## 安装步骤
+## 快速开始
 
 ### 1. 克隆项目
 \`\`\`bash
-git clone <your-repo>
-cd binance-alpha-tracker
+git clone https://github.com/Erin-99/binance-alpha-calculator.git
+cd binance-alpha-calculator
 \`\`\`
 
 ### 2. 安装依赖
@@ -35,10 +40,24 @@ cd binance-alpha-tracker
 npm install
 \`\`\`
 
-### 3. 配置环境变量
+### 3. 启动开发服务器
+\`\`\`bash
+npm run dev
+\`\`\`
+
+### 4. 开始使用
+打开浏览器访问 \`http://localhost:3000\`
+
+**无需任何配置即可使用基础计算功能！**
+
+## 高级功能配置 (可选)
+
+如果需要使用币安API集成功能，请按以下步骤配置：
+
+### 1. 配置环境变量
 创建 \`.env.local\` 文件：
 \`\`\`env
-# 币安API配置（必需）
+# 币安API配置（可选）
 BINANCE_API_KEY=your_binance_api_key_here
 BINANCE_SECRET_KEY=your_binance_secret_key_here
 
@@ -46,47 +65,33 @@ BINANCE_SECRET_KEY=your_binance_secret_key_here
 DATABASE_URL="file:./dev.db"
 \`\`\`
 
-### 4. 获取币安API密钥
-
-1. 登录币安官网
-2. 进入【个人中心】→【API管理】
-3. 创建新的API Key
-4. **重要设置**：
-   - ✅ 启用"读取"权限
-   - ❌ 关闭"交易"权限（安全考虑）
-   - ❌ 关闭"提现"权限
-   - 建议设置IP白名单
-
-### 5. 初始化数据库
+### 2. 初始化数据库
 \`\`\`bash
 npx prisma generate
 npx prisma db push
 \`\`\`
 
-### 6. 启动开发服务器
-\`\`\`bash
-npm run dev
-\`\`\`
+## 使用说明
 
-## 使用方法
+### 基础计算器使用
+1. 打开网页后，界面默认为中文
+2. 点击右上角 🌐 按钮可切换中英文
+3. 在"目标积分"输入框输入你想达到的积分
+4. 在"当前余额"输入框输入你的USD余额
+5. 系统会实时显示达到目标所需的交易次数
 
-### 手动同步数据
-访问：\`http://localhost:3000/api/sync-alpha\` (POST请求)
+### 高级功能使用 (需要配置API)
+配置完币安API后，可使用以下高级功能：
 
-或使用curl：
+#### 手动同步数据
 \`\`\`bash
 curl -X POST http://localhost:3000/api/sync-alpha
 \`\`\`
 
-### 启动定时任务
+#### 启动定时任务
 \`\`\`bash
 node scripts/sync-cron.js
 \`\`\`
-
-定时任务将在每天09:00和21:00自动执行数据同步。
-
-### 查看统计数据
-访问：\`http://localhost:3000/api/sync-alpha\` (GET请求)
 
 ## Alpha积分计算规则
 
