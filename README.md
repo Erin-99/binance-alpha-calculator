@@ -2,7 +2,7 @@
 
 一个功能完整的币安Alpha积分计算器，帮助用户快速计算达到目标积分等级所需的交易次数。
 
-## 当前功能 ✅
+## 功能特点 ✅
 
 - ✅ **双语界面**: 中英文一键切换
 - ✅ **实时计算**: 输入即时显示结果，无需点击按钮  
@@ -11,21 +11,11 @@
 - ✅ **响应式设计**: 适配各种屏幕尺寸
 - ✅ **现代化UI**: 渐变背景 + 卡片设计
 
-## 高级功能 (已开发待集成) 🔧
-
-- 🔧 币安API集成和历史数据同步
-- 🔧 个人积分统计和趋势分析  
-- 🔧 定时任务自动数据更新
-- 🔧 交易记录详情和历史查询
-
 ## 技术栈
 
-- **前端**: Next.js 14 + TypeScript + Tailwind CSS
-- **后端**: Next.js API Routes
-- **数据库**: SQLite (开发) / PostgreSQL (生产)
-- **ORM**: Prisma
-- **定时任务**: node-cron
-- **API**: 币安官方API
+- **框架**: Next.js 14 + TypeScript + React
+- **样式**: Tailwind CSS + 内联样式
+- **响应式设计**: 移动端优先设计
 
 ## 快速开始
 
@@ -48,68 +38,23 @@ npm run dev
 ### 4. 开始使用
 打开浏览器访问 \`http://localhost:3000\`
 
-**无需任何配置即可使用基础计算功能！**
-
-## 高级功能配置 (可选)
-
-如果需要使用币安API集成功能，请按以下步骤配置：
-
-### 1. 配置环境变量
-创建 \`.env.local\` 文件：
-\`\`\`env
-# 币安API配置（可选）
-BINANCE_API_KEY=your_binance_api_key_here
-BINANCE_SECRET_KEY=your_binance_secret_key_here
-
-# 数据库配置
-DATABASE_URL="file:./dev.db"
-\`\`\`
-
-### 2. 初始化数据库
-\`\`\`bash
-npx prisma generate
-npx prisma db push
-\`\`\`
+**无需任何配置，立即开始使用！**
 
 ## 使用说明
 
-### 基础计算器使用
 1. 打开网页后，界面默认为中文
 2. 点击右上角 🌐 按钮可切换中英文
 3. 在"目标积分"输入框输入你想达到的积分
 4. 在"当前余额"输入框输入你的USD余额
 5. 系统会实时显示达到目标所需的交易次数
 
-### 高级功能使用 (需要配置API)
-配置完币安API后，可使用以下高级功能：
-
-#### 手动同步数据
-\`\`\`bash
-curl -X POST http://localhost:3000/api/sync-alpha
-\`\`\`
-
-#### 启动定时任务
-\`\`\`bash
-node scripts/sync-cron.js
-\`\`\`
-
 ## Alpha积分计算规则
 
-- **统计范围**: 只统计状态为 \`FILLED\` 的成功交易
-- **计算公式**: \`Alpha积分 = 买入数量 × 2\`
-- **交易方向**: 只计算 \`BUY\` 订单的数量
-- **时间维度**: 按日汇总统计
+本计算器基于币安Alpha活动的积分规则设计：
 
-### 示例
-\`\`\`
-日期: 2024-01-15
-买入交易:
-- BTC: 0.1 BTC
-- ETH: 2.5 ETH
-- USDT买入总量: 0.1 + 2.5 = 2.6
-
-Alpha积分 = 2.6 × 2 = 5.2 分
-\`\`\`
+### 积分类型
+- **余额积分**: 根据账户资产余额获得积分
+- **交易积分**: 根据交易金额获得积分
 
 ## Alpha积分等级系统
 
@@ -132,18 +77,7 @@ Alpha积分 = 2.6 × 2 = 5.2 分
 - **积分等级 = log₂(交易金额)**
 - **所需金额 = 2^等级**
 
-### 交易次数计算器
-
-#### 快速测试
-\`\`\`bash
-# 查看测试案例和等级表
-npm run calculate
-
-# 交互式计算器
-npm run calc
-\`\`\`
-
-#### 使用示例
+### 使用示例
 
 **案例1: 本金100 USDT，目标10级**
 \`\`\`
@@ -178,166 +112,10 @@ npm run calc
 | 500-1000 USDT | 10-12级 | 5-20天 |
 | 1000+ USDT | 12-15级 | 10-35天 |
 
-## API接口
+## 贡献
 
-### POST /api/sync-alpha
-同步最新交易数据并计算Alpha积分
+欢迎提交Issue和Pull Request来改进这个项目！
 
-**响应示例**:
-\`\`\`json
-{
-  "success": true,
-  "message": "数据同步成功",
-  "data": {
-    "newTrades": 15,
-    "updatedStats": 3,
-    "latestAlphaPoints": 120.5
-  }
-}
-\`\`\`
+## 许可证
 
-### GET /api/sync-alpha
-获取Alpha积分统计数据
-
-**响应示例**:
-\`\`\`json
-{
-  "success": true,
-  "data": {
-    "totalAlphaPoints": 1250.8,
-    "dailyStats": [
-      {
-        "date": "2024-01-15",
-        "alphaPoints": 120.5,
-        "totalBuyQty": 60.25,
-        "tradeCount": 8
-      }
-    ],
-    "summary": {
-      "totalTrades": 245,
-      "totalBuyVolume": 625.4,
-      "avgDailyAlpha": 41.69
-    }
-  }
-}
-\`\`\`
-
-### POST /api/calculate-plan
-计算交易计划和所需次数
-
-**请求参数**:
-\`\`\`json
-{
-  "principalAmount": 100,
-  "targetLevel": 10,
-  "currentTotalAmount": 0,
-  "maxDays": 30
-}
-\`\`\`
-
-**响应示例**:
-\`\`\`json
-{
-  "success": true,
-  "data": {
-    "tradingPlan": {
-      "targetLevel": 10,
-      "requiredAmount": 1024,
-      "principalAmount": 100,
-      "requiredTrades": 11,
-      "canAchieve": true,
-      "suggestions": [
-        "需要进行11次交易达到10级",
-        "预计需要6天完成（每天2次交易）"
-      ]
-    },
-    "currentLevelInfo": {
-      "currentLevel": 0,
-      "currentAmount": 0,
-      "nextLevel": 1,
-      "nextLevelAmount": 2,
-      "progressPercentage": 0
-    },
-    "optimizedStrategy": {
-      "strategy": "standard",
-      "dailyTrades": 1,
-      "tradeAmount": 100,
-      "estimatedDays": 6,
-      "feasible": true
-    },
-    "recommendedLevels": [5, 7, 8]
-  }
-}
-\`\`\`
-
-### GET /api/calculate-plan
-获取积分等级表和使用说明
-
-## 数据库结构
-
-### Trade表
-存储所有交易记录
-\`\`\`sql
-- orderId: 订单ID (唯一)
-- symbol: 交易对
-- side: 交易方向 (BUY/SELL)
-- executedQty: 执行数量
-- status: 订单状态
-- time: 交易时间
-\`\`\`
-
-### AlphaStats表
-存储每日Alpha积分统计
-\`\`\`sql
-- date: 日期 (唯一)
-- totalBuyQty: 当日总买入量
-- alphaPoints: Alpha积分
-- tradeCount: 交易笔数
-\`\`\`
-
-## 部署建议
-
-### 开发环境
-- 使用SQLite数据库
-- 本地运行定时任务
-
-### 生产环境
-- 使用PostgreSQL数据库
-- 部署到Vercel + Railway/Supabase
-- 使用Vercel Cron Jobs或外部定时任务
-
-## 注意事项
-
-1. **API限制**: 币安API有频率限制，建议每小时同步1-2次
-2. **数据安全**: API密钥具有读取权限，请妥善保管
-3. **历史数据**: 首次同步会获取最近30天的数据
-4. **时区设置**: 定时任务使用Asia/Shanghai时区
-
-## 故障排除
-
-### 常见错误
-
-**API连接失败**
-- 检查API密钥是否正确
-- 确认网络连接正常
-- 验证IP白名单设置
-
-**数据库错误**
-- 运行 \`npx prisma db push\` 重新初始化
-- 检查DATABASE_URL配置
-
-**权限错误**
-- 确保API Key开启了"读取"权限
-- 检查币安账户状态
-
-## 开发说明
-
-项目采用模块化设计：
-- \`lib/binance-client.ts\`: 币安API客户端
-- \`lib/alpha-calculator.ts\`: Alpha积分计算逻辑
-- \`app/api/sync-alpha/\`: API路由
-- \`scripts/sync-cron.js\`: 定时任务脚本
-
-## 联系方式
-
-如有问题请提交Issue或联系开发者。 
+MIT License 
