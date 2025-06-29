@@ -580,17 +580,41 @@ export default function HomePage() {
                   <div style={{color: '#1d4ed8', fontSize: '16px', fontWeight: 'bold'}}>floor(log₂(volume))</div>
                 </div>
                 
-                <div style={{marginBottom: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid #bfdbfe'}}>
-                  <span style={{color: '#1e3a8a', fontSize: '16px'}}>$2 → 1 {t.point}</span>
-                  <span style={{color: '#1d4ed8', fontSize: '16px'}}>$4 → 2 {t.points}</span>
+                <div style={{marginBottom: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #bfdbfe'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>$2 → 1 {t.point}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>$4 → 2 {t.points}</span>
                 </div>
-                <div style={{marginBottom: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid #bfdbfe'}}>
-                  <span style={{color: '#1e3a8a', fontSize: '16px'}}>$8 → 3 {t.points}</span>
-                  <span style={{color: '#1d4ed8', fontSize: '16px'}}>$16 → 4 {t.points}</span>
+                <div style={{marginBottom: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #bfdbfe'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>$8 → 3 {t.points}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>$16 → 4 {t.points}</span>
                 </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0'}}>
-                  <span style={{color: '#1e3a8a', fontSize: '16px'}}>{t.noMaxLimit}</span>
-                  <span style={{color: '#1d4ed8', fontSize: '16px'}}>{t.unlimitedPoints}</span>
+                <div style={{marginBottom: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #bfdbfe'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>$32 → 5 {t.points}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>$64 → 6 {t.points}</span>
+                </div>
+                <div style={{marginBottom: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #bfdbfe'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>$128 → 7 {t.points}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>$256 → 8 {t.points}</span>
+                </div>
+                <div style={{marginBottom: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #bfdbfe'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>$512 → 9 {t.points}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>$1024 → 10 {t.points}</span>
+                </div>
+                <div style={{marginBottom: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #bfdbfe'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>$2048 → 11 {t.points}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>$4096 → 12 {t.points}</span>
+                </div>
+                <div style={{marginBottom: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #bfdbfe'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>$8192 → 13 {t.points}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>$16384 → 14 {t.points}</span>
+                </div>
+                <div style={{marginBottom: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0', borderBottom: '1px solid #bfdbfe'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>$32768 → 15 {t.points}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>$65536 → 16 {t.points}</span>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0'}}>
+                  <span style={{color: '#1e3a8a', fontSize: '14px'}}>{t.noMaxLimit}</span>
+                  <span style={{color: '#1d4ed8', fontSize: '14px'}}>{t.unlimitedPoints}</span>
                 </div>
               </div>
             </div>
