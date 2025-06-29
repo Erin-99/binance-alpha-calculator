@@ -618,7 +618,6 @@ export default function HomePage() {
                 <div style={{marginBottom: '12px', textAlign: 'center', padding: '8px', background: '#dbeafe', borderRadius: '6px'}}>
                   <div style={{color: '#1e3a8a', fontSize: '12px', fontWeight: '600', marginBottom: '2px'}}>{t.formula}</div>
                   <div style={{color: '#1d4ed8', fontSize: '14px', fontWeight: 'bold'}}>floor(log₂(volume))</div>
-                  <div style={{color: '#1e40af', fontSize: '10px', marginTop: '4px', fontWeight: '500'}}>{t.doublePointsRule}</div>
                 </div>
                 
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px 8px', fontSize: '12px'}}>
