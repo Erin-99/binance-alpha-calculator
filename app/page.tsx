@@ -131,6 +131,7 @@ export default function HomePage() {
       noteExtra: '考虑磨损因素，建议多做1-2次交易防止卡线，或者当前余额扣除磨损之后计算',
       waitingCalculation: '等待计算...',
       pleaseEnterValues: '请输入目标积分和当前余额',
+      totalPointsFormula: '总积分（目标积分）= 余额积分 + 交易积分',
       point: '分',
       points: '分'
     },
@@ -154,6 +155,7 @@ export default function HomePage() {
       noteExtra: 'Consider slippage, suggest 1-2 extra trades to avoid threshold issues, or calculate with current balance minus slippage costs',
       waitingCalculation: 'Waiting for calculation...',
       pleaseEnterValues: 'Please enter target points and current balance',
+      totalPointsFormula: 'Total Points (Target Points) = Balance Points + Trading Points',
       point: 'point',
       points: 'points'
     }
@@ -516,9 +518,25 @@ export default function HomePage() {
             fontSize: '28px',
             fontWeight: 'bold',
             color: '#1a202c',
-            marginBottom: '32px',
+            marginBottom: '24px',
             textAlign: 'center'
           }}>{t.pointsRulesRef}</h3>
+          
+          {/* Total Points Formula */}
+          <div style={{
+            textAlign: 'center',
+            marginBottom: '32px',
+            padding: '16px',
+            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+            borderRadius: '12px',
+            border: '1px solid #bae6fd'
+          }}>
+            <div style={{
+              fontSize: '18px',
+              fontWeight: '600',
+              color: '#0369a1'
+            }}>{t.totalPointsFormula}</div>
+          </div>
           
           <div style={{
             display: 'grid',
