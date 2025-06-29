@@ -77,7 +77,7 @@ class AlphaCalculator {
     const neededTradingPoints = Math.max(0, targetTotalPoints - balancePoints);
     const requiredTradingAmount = this.calculateRequiredTradingAmount(neededTradingPoints);
     const remainingTradingAmount = Math.max(0, requiredTradingAmount - currentTradingVolume);
-    const singleTradeAmount = userBalance;
+    const singleTradeAmount = userBalance * 2; // BSC链上买入交易按双倍计算积分
     const requiredTrades = singleTradeAmount > 0 ? 
       Math.ceil(remainingTradingAmount / singleTradeAmount) : 0;
     const recommendedTrades = requiredTrades > 0 ? requiredTrades + 1 : 0;
@@ -129,6 +129,7 @@ export default function HomePage() {
       unlimitedPoints: '无限积分',
       noteTrading: '买+卖算一次交易',
       noteExtra: '考虑磨损因素，建议多做1-2次交易防止卡线，或者当前余额扣除磨损之后计算',
+      doublePointsRule: 'BSC链上买入指定代币交易额按双倍计算积分',
       waitingCalculation: '等待计算...',
       pleaseEnterValues: '请输入目标积分和当前余额',
       totalPointsFormula: '总积分（目标积分）= 余额积分 + 交易积分',
@@ -154,6 +155,7 @@ export default function HomePage() {
       unlimitedPoints: 'Unlimited points',
       noteTrading: 'Buy + Sell = 1 trade',
       noteExtra: 'Consider slippage, suggest 1-2 extra trades to avoid threshold issues, or calculate with current balance minus slippage costs',
+      doublePointsRule: 'BSC chain buy transactions count as double for specified tokens',
       waitingCalculation: 'Waiting for calculation...',
       pleaseEnterValues: 'Please enter target points and current balance',
       totalPointsFormula: 'Total Points (Target Points) = Balance Points + Trading Points',
@@ -506,6 +508,7 @@ export default function HomePage() {
                   textAlign: 'left'
                 }}>
                   <div style={{marginBottom: '8px'}}>• {t.noteTrading}</div>
+                  <div style={{marginBottom: '8px'}}>• {t.doublePointsRule}</div>
                   <div>• {t.noteExtra}</div>
                 </div>
               </div>
@@ -615,6 +618,7 @@ export default function HomePage() {
                 <div style={{marginBottom: '12px', textAlign: 'center', padding: '8px', background: '#dbeafe', borderRadius: '6px'}}>
                   <div style={{color: '#1e3a8a', fontSize: '12px', fontWeight: '600', marginBottom: '2px'}}>{t.formula}</div>
                   <div style={{color: '#1d4ed8', fontSize: '14px', fontWeight: 'bold'}}>floor(log₂(volume))</div>
+                  <div style={{color: '#1e40af', fontSize: '10px', marginTop: '4px', fontWeight: '500'}}>{t.doublePointsRule}</div>
                 </div>
                 
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px 8px', fontSize: '12px'}}>
