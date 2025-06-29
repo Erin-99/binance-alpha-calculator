@@ -1,47 +1,27 @@
 {
-  "name": "binance-alpha-tracker",
-  "version": "0.1.0",
+  "name": "binance-alpha-calculator",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "setup": "node scripts/setup.js",
-    "db:generate": "prisma generate",
-    "db:push": "prisma db push",
-    "sync": "node scripts/sync-cron.js",
-    "sync:once": "curl -X POST http://localhost:3000/api/sync-alpha",
-    "calculate": "node scripts/test-calculator.js",
-    "calc": "node scripts/test-calculator.js --interactive"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "14.0.0",
     "react": "^18",
-    "react-dom": "^18",
-    "@prisma/client": "^5.0.0",
-    "node-cron": "^3.0.3",
-    "node-fetch": "^3.3.0",
-    "recharts": "^2.8.0",
-    "shadcn-ui": "^0.4.0",
-    "@radix-ui/react-icons": "^1.3.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "lucide-react": "^0.294.0",
-    "tailwind-merge": "^2.0.0",
-    "tailwindcss-animate": "^1.0.7"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/node-cron": "^3.0.0",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.0.0",
-    "prisma": "^5.0.0"
+    "eslint-config-next": "14.0.0"
   }
 } 
