@@ -132,6 +132,7 @@ export default function HomePage() {
       waitingCalculation: '等待计算...',
       pleaseEnterValues: '请输入目标积分和当前余额',
       totalPointsFormula: '总积分（目标积分）= 余额积分 + 交易积分',
+      estimatedTradingAmount: '预估交易额',
       point: '分',
       points: '分'
     },
@@ -156,6 +157,7 @@ export default function HomePage() {
       waitingCalculation: 'Waiting for calculation...',
       pleaseEnterValues: 'Please enter target points and current balance',
       totalPointsFormula: 'Total Points (Target Points) = Balance Points + Trading Points',
+      estimatedTradingAmount: 'Estimated Trading Amount',
       point: 'point',
       points: 'points'
     }
@@ -480,7 +482,20 @@ export default function HomePage() {
               <div>
                 <div style={{fontSize: '48px', marginBottom: '16px'}}>📈</div>
                 <div style={{fontSize: '64px', fontWeight: '300', marginBottom: '8px'}}>{result.requiredTrades}</div>
-                <div style={{fontSize: '24px', fontWeight: '600', opacity: 0.9, marginBottom: '24px'}}>{t.tradingTimes}</div>
+                <div style={{fontSize: '24px', fontWeight: '600', opacity: 0.9, marginBottom: '12px'}}>{t.tradingTimes}</div>
+                {userBalance > 0 && result.requiredTrades > 0 && (
+                  <div style={{
+                    background: 'rgba(255, 255, 255, 0.15)', 
+                    borderRadius: '8px', 
+                    padding: '8px 16px', 
+                    marginBottom: '20px'
+                  }}>
+                    <div style={{fontSize: '14px', opacity: 0.8, marginBottom: '4px'}}>{t.estimatedTradingAmount}</div>
+                    <div style={{fontSize: '20px', fontWeight: '600'}}>
+                      ${(result.requiredTrades * userBalance).toLocaleString()}
+                    </div>
+                  </div>
+                )}
                 
                 <div style={{
                   background: 'rgba(255, 255, 255, 0.1)',
@@ -557,23 +572,26 @@ export default function HomePage() {
                 background: '#f0fdfa',
                 borderRadius: '12px',
                 padding: '20px',
-                border: '1px solid #a7f3d0'
+                border: '1px solid #a7f3d0',
+                minHeight: '320px'
               }}>
-                <div style={{marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid #d1fae5'}}>
-                  <span style={{color: '#064e3b', fontSize: '16px'}}>$100 - $1,000</span>
-                  <span style={{color: '#065f46', fontWeight: 'bold'}}>1 {t.point}</span>
-                </div>
-                <div style={{marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid #d1fae5'}}>
-                  <span style={{color: '#064e3b', fontSize: '16px'}}>$1,000 - $10,000</span>
-                  <span style={{color: '#065f46', fontWeight: 'bold'}}>2 {t.points}</span>
-                </div>
-                <div style={{marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid #d1fae5'}}>
-                  <span style={{color: '#064e3b', fontSize: '16px'}}>$10,000 - $100,000</span>
-                  <span style={{color: '#065f46', fontWeight: 'bold'}}>3 {t.points}</span>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0'}}>
-                  <span style={{color: '#064e3b', fontSize: '16px'}}>$100,000+</span>
-                  <span style={{color: '#065f46', fontWeight: 'bold'}}>4 {t.points}</span>
+                <div>
+                  <div style={{marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid #d1fae5'}}>
+                    <span style={{color: '#064e3b', fontSize: '16px'}}>$100 - $1,000</span>
+                    <span style={{color: '#065f46', fontWeight: 'bold'}}>1 {t.point}</span>
+                  </div>
+                  <div style={{marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid #d1fae5'}}>
+                    <span style={{color: '#064e3b', fontSize: '16px'}}>$1,000 - $10,000</span>
+                    <span style={{color: '#065f46', fontWeight: 'bold'}}>2 {t.points}</span>
+                  </div>
+                  <div style={{marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid #d1fae5'}}>
+                    <span style={{color: '#064e3b', fontSize: '16px'}}>$10,000 - $100,000</span>
+                    <span style={{color: '#065f46', fontWeight: 'bold'}}>3 {t.points}</span>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0'}}>
+                    <span style={{color: '#064e3b', fontSize: '16px'}}>$100,000+</span>
+                    <span style={{color: '#065f46', fontWeight: 'bold'}}>4 {t.points}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -591,7 +609,8 @@ export default function HomePage() {
                 background: '#eff6ff',
                 borderRadius: '12px',
                 padding: '16px',
-                border: '1px solid #93c5fd'
+                border: '1px solid #93c5fd',
+                minHeight: '320px'
               }}>
                 <div style={{marginBottom: '12px', textAlign: 'center', padding: '8px', background: '#dbeafe', borderRadius: '6px'}}>
                   <div style={{color: '#1e3a8a', fontSize: '12px', fontWeight: '600', marginBottom: '2px'}}>{t.formula}</div>
