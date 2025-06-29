@@ -129,6 +129,8 @@ export default function HomePage() {
       unlimitedPoints: '无限积分',
       noteTrading: '买+卖算一次交易',
       noteExtra: '考虑磨损因素，建议多做1-2次交易防止卡线',
+      waitingCalculation: '等待计算...',
+      pleaseEnterValues: '请输入目标积分和当前余额',
       point: '分',
       points: '分'
     },
@@ -150,6 +152,8 @@ export default function HomePage() {
       unlimitedPoints: 'Unlimited points',
       noteTrading: 'Buy + Sell = 1 trade',
       noteExtra: 'Consider slippage, suggest 1-2 extra trades to avoid threshold issues',
+      waitingCalculation: 'Waiting for calculation...',
+      pleaseEnterValues: 'Please enter target points and current balance',
       point: 'point',
       points: 'points'
     }
@@ -451,15 +455,20 @@ export default function HomePage() {
         </div>
 
         {/* Trading Result */}
-        {userBalance > 0 && targetTotalPoints > 0 && result.canAchieve && (
-          <div style={{
-            ...cardStyle,
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
-            color: 'white',
-            marginTop: '32px'
-          }}>
-            {result.isCompleted ? (
+        <div style={{
+          ...cardStyle,
+          textAlign: 'center',
+          background: userBalance > 0 && targetTotalPoints > 0 && result.canAchieve 
+            ? 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)'
+            : 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+          color: userBalance > 0 && targetTotalPoints > 0 && result.canAchieve ? 'white' : '#64748b',
+          marginTop: '32px',
+          border: userBalance > 0 && targetTotalPoints > 0 && result.canAchieve 
+            ? 'none' 
+            : '2px dashed #cbd5e1'
+        }}>
+          {userBalance > 0 && targetTotalPoints > 0 && result.canAchieve ? (
+            result.isCompleted ? (
               <div>
                 <div style={{fontSize: '48px', marginBottom: '16px'}}>🎉</div>
                 <h3 style={{fontSize: '32px', fontWeight: 'bold', margin: '0 0 8px 0'}}>{t.congratulations}</h3>
@@ -483,9 +492,19 @@ export default function HomePage() {
                   <div>• {t.noteExtra}</div>
                 </div>
               </div>
-            )}
-          </div>
-        )}
+            )
+          ) : (
+            <div style={{padding: '40px 20px'}}>
+              <div style={{fontSize: '48px', marginBottom: '16px', opacity: 0.3}}>📊</div>
+              <div style={{fontSize: '24px', fontWeight: '500', marginBottom: '8px', opacity: 0.7}}>
+                {t.waitingCalculation}
+              </div>
+              <div style={{fontSize: '16px', opacity: 0.5}}>
+                {t.pleaseEnterValues}
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Points Rules Reference */}
         <div style={{
