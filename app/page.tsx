@@ -494,7 +494,7 @@ export default function HomePage() {
                   }}>
                     <div style={{fontSize: '14px', opacity: 0.8, marginBottom: '4px'}}>{t.estimatedTradingAmount}</div>
                     <div style={{fontSize: '20px', fontWeight: '600'}}>
-                      ${(result.requiredTrades * userBalance).toLocaleString()}
+                      ${(result.requiredTrades * userBalance * 2).toLocaleString()}
                     </div>
                   </div>
                 )}
